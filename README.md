@@ -1,5 +1,9 @@
 ## Linux Safe Monitor
 
+![](https://img.shields.io/badge/license-MIT-blue)
+![](https://img.shields.io/badge/GO-1.21-blue)
+![](https://img.shields.io/badge/PRs-welcome-green)
+
 > This project is in development
 
 Login log monitoring, process monitoring, push notification on status changes, and support for automatically terminating processes outside the whitelist.
@@ -18,7 +22,7 @@ Login log monitoring, process monitoring, push notification on status changes, a
 ### Auto installation
 
 ```bash
-bash <(curl -Lso- https://raw.githubusercontent.com/ArsFy/linux-safe-monitor/v0.2/install.sh)
+bash <(curl -Lso- https://github.com/ArsFy/linux-safe-monitor/releases/download/v0.2/install.sh)
 ```
 
 ### Manual installation
