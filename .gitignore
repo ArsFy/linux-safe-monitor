@@ -1,0 +1,24 @@
+# Go binary
+*.exe
+safe-push
+
+# Go build output
+*.o
+*.a
+*.so
+
+# Go test and benchmark output
+*.test
+*.bench
+
+# Go coverage profile
+*.cover
+
+# Go generated files
+*_gen.go
+
+# Go vendor directory
+/vendor/
+
+# Config
+config.json
