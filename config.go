@@ -35,6 +35,9 @@ var Config = ConfigType{
 // White list
 var WhiteList = make([]string, 0)
 
+// Skip list
+var SkipList = make([]string, 0)
+
 func init() {
 	config, err := os.ReadFile("config.json")
 	if err != nil {
@@ -49,6 +52,12 @@ func init() {
 		log.Println("White list not found, using empty white list.")
 	}
 	json.Unmarshal(whiteList, &WhiteList)
+
+	skip, err := os.ReadFile("skip.json")
+	if err != nil {
+		log.Println("Skip list not found, using empty skip list.")
+	}
+	json.Unmarshal(skip, &SkipList)
 
 	// Start
 	if Config.EnableTelegram {

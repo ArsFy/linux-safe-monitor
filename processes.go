@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -46,9 +45,11 @@ func getAllProcesses() error {
 						log.Fatal(pid, " Cannot read cmdline: ", err)
 					}
 
-					mu.Lock()
-					processes[user.Username+" "+name+" "+string(cmdline)] = pid
-					mu.Unlock()
+					if isStringArrayNotContains(name, SkipList) {
+						mu.Lock()
+						processes[user.Username+" "+name+" "+string(cmdline)] = pid
+						mu.Unlock()
+					}
 				}(pid)
 			}
 		}
@@ -59,8 +60,6 @@ func getAllProcesses() error {
 	if len(ProcessMap) != 0 {
 		add, del := compareMaps(ProcessMap, processes)
 		for _, key := range add {
-			fmt.Println("Added:", key, processes[key])
-
 			switch Config.KillMode {
 			case 1:
 				if !containsString(&WhiteList, strings.Split(key, " ")[1]) {
@@ -79,13 +78,15 @@ func getAllProcesses() error {
 			}
 
 			pInfo := strings.Split(key, " ")
-			go push(1, pInfo[1], key, processes[key], pInfo[0])
+			if len(key) == 3 {
+				go push(1, pInfo[1], pInfo[2], processes[key], pInfo[0])
+			}
 		}
 		for _, key := range del {
-			fmt.Println("Removed:", key, ProcessMap[key])
-
 			pInfo := strings.Split(key, " ")
-			go push(0, pInfo[1], key, processes[key], pInfo[0])
+			if len(key) == 3 {
+				go push(0, pInfo[1], pInfo[2], processes[key], pInfo[0])
+			}
 		}
 	}
 

@@ -52,6 +52,18 @@ linux-safe
 }
 ```
 
+#### 4. Edit `skip.json` and `white-list.json`
+
+1. `skip.json`: Keywords that will be skipped
+```json
+["kworker"]
+```
+
+2. `white-list.json`: Process name that will not be killed by kill mode
+```json
+["bash", "vim"]
+```
+
 #### 3. Run
 
 ```

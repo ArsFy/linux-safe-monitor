@@ -1,5 +1,16 @@
 package main
 
+import "strings"
+
+func isStringArrayNotContains(str string, arr []string) bool {
+	for _, item := range arr {
+		if strings.Contains(item, str) {
+			return false
+		}
+	}
+	return true
+}
+
 func containsString(arr *[]string, target string) bool {
 	for _, str := range *arr {
 		if str == target {
