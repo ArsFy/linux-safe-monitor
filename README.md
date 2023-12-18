@@ -15,6 +15,12 @@ Login log monitoring, process monitoring, push notification on status changes, a
 - Telegram
 - In development ...
 
+### Auto installation
+
+```bash
+bash <(curl -Lso- https://raw.githubusercontent.com/ArsFy/linux-safe-monitor/v0.2/install.sh)
+```
+
 ### Manual installation
 
 #### 1. Download

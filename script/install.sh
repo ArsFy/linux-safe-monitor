@@ -15,7 +15,7 @@ if ! command -v wget &> /dev/null; then
 fi
 
 sudo mkdir -p /opt/safe-monitor
-wget -O /opt/safe-monitor/safe-monitor-linux-amd64.tar.gz https://github.com/ArsFy/linux-safe-monitor/releases/download/v0.1/safe-monitor-linux-amd64.tar.gz
+wget -O /opt/safe-monitor/safe-monitor-linux-amd64.tar.gz https://github.com/ArsFy/linux-safe-monitor/releases/download/v0.2/safe-monitor-linux-amd64.tar.gz
 sudo tar -xzf /opt/safe-monitor/safe-monitor-linux-amd64.tar.gz -C /opt/safe-monitor
 sudo rm /opt/safe-monitor/safe-monitor-linux-amd64.tar.gz
 sudo chmod +x /opt/safe-monitor/safe-monitor
